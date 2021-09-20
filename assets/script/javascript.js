@@ -183,9 +183,7 @@ function showResults() {
                 let imgUrl = "https://image.tmdb.org/t/p/w500";
                 imgUrl += data.poster_path;
                 imgUrl += '?api_key=' + apiKey;
-
-                // let movieTitle = data.title;
-                // let movieYear = data.release_date.substring(0,4);
+                
                 let movieData = [data.title, data.release_date.substring(0,4), imgUrl];
                 // let directorName = ;
                 createCard(movieData);
