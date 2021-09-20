@@ -25,9 +25,51 @@ const searchField = document.getElementById('searchText');
 const searchButton_1 = document.getElementById('searchButton_1');
 const searchButton_2 = document.getElementById('searchButton_2');
 const searchButton_3 = document.getElementById('searchButton_3');
+const actorFiltersDiv = document.getElementById('actorFilters');
 searchButton_1.addEventListener('click', searchButton_1_Clicked)
 searchButton_2.addEventListener('click', searchButton_2_Clicked)
 searchButton_3.addEventListener('click', searchButton_3_Clicked)
+
+const actorFilterClicked = event => {
+    const target = event.target;
+    if (!target.matches('h4')) {
+        console.log('no match', target)
+        return;
+    } else {
+        console.log('match', target)
+    }
+    
+    const idAttributeValue = target.attributes.getNamedItem('id').value;
+    const idAttributeValueSplit = idAttributeValue.split('-');
+    const actorId = idAttributeValueSplit[2];
+    console.log('got to here.  ActorId to delete:', actorId)
+    
+    // Remove from appData.actorFilters.
+    let arrayIndexToDelete = 0;
+    for (let i = 0; i < appData.actorFilters.length; i++) {
+        const actorFilter = appData.actorFilters[i];
+        if (actorFilter.id === actorId) {
+            arrayIndexToDelete = i;
+            break;
+        }
+    }
+    appData.actorFilters.splice(arrayIndexToDelete, 1)
+    console.log('appData now:', appData.actorFilters)
+};
+/*
+
+function answerClicked(event) {
+    const target = event.target;
+    // Only interested in clicked elements if they are a button.
+    if (!target.matches('button')) return;
+
+    // Check answer
+    const userAnswerId = target.attributes.getNamedItem('data-answer-index').value;
+    const correctAnswerId = data.questions[currentQuestionIndex].correctAnswer;
+    const isCorrectAnswer = parseInt(userAnswerId) === correctAnswerId;
+    */
+
+actorFiltersDiv.addEventListener('click', actorFilterClicked);
 
 let appData = {
     actorFilters: [],
@@ -38,15 +80,12 @@ let appData = {
 function searchButton_1_Clicked() {
     // getActorIdByActorName(searchField.value);
     getActorIdByActorName('Chris Evans');
-    // showResults();
 }
 function searchButton_2_Clicked() {
     getActorIdByActorName('Scarlett Johansson');
-    // showResults();
 }
 function searchButton_3_Clicked() {
     getActorIdByActorName('Robert Downey, Jr.');
-    // showResults();
 }
 
 
@@ -82,9 +121,38 @@ const getMoviesByActorId = actor => {
                 appData.commonMovieIds = commonMovieIds;
             }
             console.log('finally: appdata', appData)
+            updateDisplay();
             showResults();
         });
 }
+
+const updateDisplay = () => {
+    updateActorFilters();
+    // updateResults();
+};
+
+const updateActorFilters = () => {
+    // Loop over appData actorFilters and create a button for each.
+    // Sample: <h4 class="header hoverable chip" id="search-filter-1">(Search Filter Placeholder) <i class="close material-icons">close</i></h4>
+    // First, clear out old entries.
+    while (actorFiltersDiv.firstChild) {
+        actorFiltersDiv.removeChild(actorFiltersDiv.firstChild);
+    }
+    const actorFilters = appData.actorFilters;
+    for (let i = 0; i < actorFilters.length; i++) {
+        const actorFilter = actorFilters[i];
+        const iTag = document.createElement('i');
+        iTag.classList.add('close-chip-button', 'material-icons');
+        iTag.textContent = 'close';
+
+        const hTag = document.createElement('h4');
+        hTag.classList.add('header', 'hoverable', 'chip');
+        hTag.setAttribute('id', 'search-filter-' + actorFilter.id);
+        hTag.textContent = actorFilter.name;
+        hTag.appendChild(iTag);
+        actorFiltersDiv.appendChild(hTag)
+    }
+};
 
 
 const findCommonMovies = (movieIdsToCompare) => {

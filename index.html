@@ -1,33 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./assets/css/stylesheet.css" />
-    <link rel="stylesheet" href="./assets/css/materialize.css">
-    <link rel="stylesheet" href="./assets/css/stylesheet.css">
-    <title>InterActor</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <link rel="stylesheet" href="./assets/css/stylesheet.css" type="text/css">
+  <link rel="stylesheet" href="./assets/css/materialize.css">
+  <link rel="stylesheet" href="./assets/css/stylesheet.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <title>InterActor</title>
 </head>
+<!--
+Things to add
+Button for when typring into search bar?
+moving search filters over to the right a little (add padding)
+Modals
+
+-->
+
 <body>
     <div id="test">
         <h1>InterActor</h1>
     </div>
 <!--Search Bar   <div class="card-panel teal lighten-2"> -->
-<nav>
+  <!--This is the search bar at the top of the page-->
+  <nav>
     <div class="nav-wrapper">
       <form>
         <div class="input-field card-panel light-blue darken-1">
-          <input id="search" type="search" required class="light-blue darken-1 custom-class">
-          <label class="label-icon light-blue darken-1" for="search"><i class="material-icons light-blue darken-1">Input: </i></label>
-          <i class="material-icons light-blue darken-1" >close</i>
-    
+          <!--Autocomplete function below with -->
+          <input id="search" type="search" required class="light-blue darken-1 custom-class autocomplete">
+          <label class="label-icon light-blue darken-1" for="search"><i class="material-icons light-blue darken-1">search</i></label> 
+          <i class="material-icons light-blue darken-1">close</i>
         </div>
-        
       </form>
     </div>
+  
+<!--This is the autocomplete bar-->
 
-<!--
+    <!--
         <div class="preloader-wrapper active">
         <div class="spinner-layer spinner-red-only">
           <div class="circle-clipper left">
@@ -40,32 +54,31 @@
         </div>
       </div>
 -->
-
+<!--This  is the buttons at the top for testing Filter functionality-->
     <div class="topnav">
-        <input id="searchText" type="text" placeholder="Search..">
-        <button id="searchButton_1">Search Chris Evans</button><button id="searchButton_2">Search Scarlett Johansson</button><button id="searchButton_3">Search Robert Downey, Jr.</button>
-    
+      <button id="searchButton_1">Search Chris Evans</button>
+      <button id="searchButton_2">Search Scarlett Johansson</button>
+      <button id="searchButton_3">Search Robert Downey, Jr.</button>
     </div>
     <div class="row">
-        <div class="column-1" style="background-color:#FFB695;">
+        <div class="column-1" style="background-color:#01579b;">
             <h2 class="center-align">Search </h2>
-            <h4 class="header hoverable chip" id="search-filter-1">(Search Filter Placeholder) <i class="close material-icons">close</i></h4>
-            <h4 class="header hoverable chip" id="search-filter-2">(Search Filter Placeholder) <i class="close material-icons">close</i></h4>
-            <h4 class="header hoverable chip" id="search-filter-3">(Search Filter Placeholder) <i class="close material-icons">close</i></h4>
+            <div id="actorFilters">
+              <h4 class="header hoverable chip" id="search-filter-1">(Search Filter Placeholder) <i class="close material-icons">close</i></h4>
+            </div>
         </div>
-        <div class="column-2" id="resultsCol" style="background-color:#96D1CD;">
+        <div class="column-2" id="resultsCol" style="background-color:#006064 ;">
             <h2 class="center-align">Results</h2>
     <!--Results Card-->
             
-            
     <!--End results Card Code-->
         </div>
+        <!--End results Card Code-->
+      </div>
     </div>
-
-
+  </nav>
 </body>
 <!-- Script Sources-->
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="./assets/script/testing.js"></script>
 <script src="./assets/script/materialize.js"></script>
 
