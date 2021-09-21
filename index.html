@@ -1,36 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="./assets/css/stylesheet.css" />
-  <link rel="stylesheet" href="./assets/css/materialize.css">
-  <link rel="stylesheet" href="./assets/css/stylesheet.css">
-  <title>InterActor</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/Users/kcortina/Desktop/groupproject1/style.css" />
+    <link rel="stylesheet" href="/Users/kcortina/Desktop/groupproject1/materialize.css">
+    <link rel="stylesheet" href="/Users/kcortina/Desktop/groupproject1/style.css">
+    <title>InterActor</title>
 </head>
-
 <body>
-  <div id="test">
-    <h1>InterActor</h1>
-  </div>
-  <!--Search Bar   <div class="card-panel teal lighten-2"> -->
-  <nav>
+    <div id="test">
+        <h1 style="color: white;"> InterActor</h1>
+    </div>
+<!--Search Bar   <div class="card-panel teal lighten-2"> -->
+<nav>
     <div class="nav-wrapper">
-      <form>
-        <div class="input-field card-panel light-blue darken-1">
-          <input id="search" type="search" required class="light-blue darken-1 custom-class">
-          <label class="label-icon light-blue darken-1" for="search"><i
-              class="material-icons light-blue darken-1">Input: </i></label>
-          <i class="material-icons light-blue darken-1">close</i>
-
-        </div>
-
+      <form style="background-color: #01579b;">
+        <div class="input-field card-panel" style="background-color: white;" >
+          <input id="searchBar" type="search" style="background-color: white;">
+          <label class="label-icon" style="background-color: white;" for="search">
+            <i class="material-icons" id="search-text" style="color:black;">search </i></label>
+          <i class="material-icons" id="x-button" style="background-color: white;" onclick="document.getElementById('searchBar').value=''" >X</i>
+        </div>        
       </form>
     </div>
-
-    <!--
+<!--
         <div class="preloader-wrapper active">
         <div class="spinner-layer spinner-red-only">
           <div class="circle-clipper left">
@@ -44,57 +39,64 @@
       </div>
 -->
 
-    <div class="topnav">xxxxx
-      <input id="searchText" type="text" placeholder="Search..">
-      <button id="searchButton_1">Search Chris Evans</button><button id="searchButton_2">Search Scarlett
-        Johansson</button><button id="searchButton_3">Search Robert Downey, Jr.</button>
+<!-- Kurts auto buttons code-->
+<div class="topnav">
+    <button id="searchButton_1">Search Chris Evans</button>
+    <button id="searchButton_2">Search Scarlett Johansson</button>
+    <button id="searchButton_3">Search Robert Downey, Jr.</button>
+    <button id="clearActorsFilters">Press here to clear Filters</button>
+</div>
+<!-- Kurts auto buttons code end-->
+
 
     </div>
     <div class="row">
-      <div class="column-1" style="background-color:#FFB695;">
-        <h2 class="center-align">Search!!!!! </h2>
-        <div id="actorFilters">
-          <h4 class="header hoverable chip" id="search-filter-1">(Search Filter Placeholder) <i class="close material-icons">close</i></h4>
-        </div>
-      </div>
-      <div class="column-2" style="background-color:#96D1CD;">
-        <h2 class="center-align">Results</h2>
-        <!--Results Card-->
-        <p>
-        <div class="container">
-          <div class="col s12 m6 hoverable">
-            <h4 class="header" id="search-filter-1">(Search Filter Placeholder) </h4>
-            <div class="card-horizontal">
-              <div class="card-image" id="poster-image">
-                <img src="https://lorempixel.com/190/100/nature/6">
-              </div>
-              <div class="card-stacked">
-                <div class="card-content">
-                  <div id="movies-title">(Movies-title)</div>
-                  <div id="year"> (Year)</div>
-                  <div id="director">(Director)</div>
-                  <div id=""></div>
-                </div>
-                <div class="card-action">
-                  <a href="#">shared movies</a>
-                  <a href="#">Other movies</a>
-                </div>
-              </div>
+        <div class="column-1" style="background-color:#01579b;">
+            <h4 class="center-align">Search Filters</h4>
+            <div id="actorFilters">
+                <h4 class="header hoverable chip" style="visibility:hidden;" id="search-filter-1">(Search Filter Placeholder) <i class="close material-icons" id="closeButton">close</i></h4>
+                <h4 class="header hoverable chip" style="visibility:hidden;" id="search-filter-2">(Search Filter Placeholder) <i class="close material-icons" id="closeButton">close</i></h4>
+                <h4 class="header hoverable chip" style="visibility:hidden;" id="search-filter-3">(Search Filter Placeholder) <i class="close material-icons" id="closeButton">close</i></h4>
             </div>
-          </div>
         </div>
-        </p>
-        <!--End results Card Code-->
-      </div>
+        <div class="column-2" style="background-color:#004d40;">
+            <h4 class="center-align">Results</h4>
+    <!--Results Card-->
+            <div>
+                <div class="container, left-align">
+                    <div class="col s12 m6 hoverable" style="visibility:hidden;" id="results-card-holder" style="background-color: #006064;">
+                        <div class="card-horizontal" style="background-color:#006064;">
+                          <div class="card-image-holder" id="poster-image" >
+                            <img class="card-image" src="https://m.media-amazon.com/images/M/MV5BZmUyMDEyOTgtZmUwOS00NTdkLThlNzctNTM1ODQ4M2VhMjdhXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg">
+                          </div>
+                          <div class="card-stacked">
+                            <div class="card-content">
+                              <h4 id="movies-title">(Movie-title)</h4>
+                              <div id="year"> (Year)</div>
+                              <div id="director">(Director)</div>  
+                              <div id="actors">(Actors)</div>
+                              <div></div>
+                              <div></div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    <!--End results Card Code-->
+        </div>
     </div>
-
 
 </body>
 <!-- Script Sources-->
-<script src="./assets/script/testing.js"></script>
-<script src="./assets/script/materialize.js"></script>
+<!--<script src="./assets/script/testing.js"></script> -->
+<script src="/Users/kcortina/Desktop/groupproject1/materialize.css"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-<script src="./assets/script/javascript.js"></script>
-
+<script src="/Users/kcortina/Desktop/groupproject1/javascript.js"></script>
+<!--<script src="./assets/javascript.js"></script>-->
 </html>
+
+
+
+
