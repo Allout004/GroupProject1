@@ -17,20 +17,11 @@ $(document).ready(function () {
     limit: 3,
   });
 });
-
 // onAutocomplete()
 // console.log("suh")
-
-
 //  need to import data dynamically or thru API call on page load
 var searchBar = document.getElementById("search")
 // Execute a function when the user releases a key on the keyboard
-
-searchBar.addEventListener("keyup", function () {
-  console.log("keyup", searchBar.value)
-})
-
-
 $(document).submit(function (event) {
   console.log("This is a the submit function working")
   event.preventDefault();
