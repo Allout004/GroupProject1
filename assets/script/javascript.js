@@ -21,7 +21,7 @@ appData = {
 const apiKey = '67ef4e4a60b4acfa5458eea4807a1de1';
 const tmdbUrl = 'https://api.themoviedb.org/3/';
 
-const searchField = document.getElementById('search');
+const searchField = document.getElementById('searchBar');
 const searchButton_1 = document.getElementById('searchButton_1'); // Remove later.
 const searchButton_2 = document.getElementById('searchButton_2'); // Remove later.
 const searchButton_3 = document.getElementById('searchButton_3'); // Remove later.

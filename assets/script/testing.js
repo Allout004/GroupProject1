@@ -22,12 +22,17 @@
 //  need to import data dynamically or thru API call on page load
 var searchBar = document.getElementById("search")
 // Execute a function when the user releases a key on the keyboard
+
+// searchBar.addEventListener("keyup", function () {
+//   console.log("keyup", searchBar.value)
+// })
+
+
 $(document).submit(function (event) {
   // console.log("This is a the submit function working")
   event.preventDefault();
   // Get value from text field.
-  const searchString = $('#search').val();
-  console.log(searchString)
+  const searchString = $('#searchBar').val();
   // call searchForActor()
   searchForActor(searchString);
 })
