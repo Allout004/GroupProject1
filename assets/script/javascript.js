@@ -54,6 +54,12 @@ const searchForActor = searchString => {
     const urlActorIdBySearchString = makeUrlActorIdBySearchString(searchString);
     doFetch(urlActorIdBySearchString)
         .then((data) => {
+            // Check for duplicate actors.
+            const isDuplicate = checkForDuplicateActor(data);
+            if (isDuplicate) {
+                alert('Duplicate actor entered');
+                return;
+            }
             const actor = makeActor(data);
             saveAppData('actor', actor);
             doDerivedData(actor);
@@ -209,6 +215,17 @@ const makeActor = data => {
     const actorName = dataResult.name;
     const actor = { id: actorId, name: actorName };
     return actor;
+};
+
+const checkForDuplicateActor = data => {
+    const actorId = data.results[0].id;
+    // Try to find this actor id.
+    const existingActor = appData.actorFilters.find( (actor) => {
+        return actor.id === actorId;
+    });
+
+    if(existingActor) return true;
+    return false;
 };
 
 const doFetch = (url) => {
