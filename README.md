@@ -1,7 +1,6 @@
 # InterActor - (GroupProject 1)
 
-# This is the submission for Group Project #1 [InterActor] (https://github.com/Allout004/GroupProject1) for U/W Coding Bootcamp Full Stack Flex Program, for Kurt Heimerman.
-
+# This is the submission for Group Project #1 [InterActor] (https://github.com/Allout004/GroupProject1) for U/W Coding Bootcamp Full Stack Flex Program
 ## Notes About Application:      
 * Looks for 2 or more actors/actresses in the same movie
 
